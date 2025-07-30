@@ -1,0 +1,140 @@
+.header {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 24px;
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  z-index: 99;
+}
+
+.header-left {
+  flex-shrink: 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb-icon {
+  color: #6b7280;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.breadcrumb-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.header-center {
+  flex: 1;
+  max-width: 600px;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.search-field ::ng-deep .mat-mdc-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.search-field ::ng-deep .mat-mdc-text-field-wrapper {
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.search-icon {
+  color: #9ca3af;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.upload-btn {
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  padding: 0 16px;
+  height: 36px;
+}
+
+.upload-btn mat-icon {
+  margin-right: 8px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.new-folder-btn {
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  padding: 0 16px;
+  height: 36px;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.new-folder-btn mat-icon {
+  margin-right: 8px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.view-menu-btn,
+.more-options-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.view-menu-btn mat-icon,
+.more-options-btn mat-icon {
+  color: #6b7280;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    left: 60px;
+    padding: 0 16px;
+    gap: 16px;
+  }
+  
+  .header-center {
+    max-width: 300px;
+  }
+  
+  .new-folder-btn span {
+    display: none;
+  }
+  
+  .upload-btn span {
+    display: none;
+  }
+}

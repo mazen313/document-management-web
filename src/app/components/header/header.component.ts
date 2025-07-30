@@ -1,0 +1,51 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-header',
+  standalone: true,
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule,
+    FormsModule
+  ],
+})
+export class HeaderComponent {
+  @Input() currentPath = 'Home';
+  @Output() uploadFiles = new EventEmitter<void>();
+  @Output() createFolder = new EventEmitter<void>();
+  @Output() search = new EventEmitter<string>();
+  @Output() viewModeChange = new EventEmitter<'grid' | 'list'>();
+
+  searchQuery = '';
+
+  onUploadFiles() {
+    this.uploadFiles.emit();
+  }
+
+  onCreateFolder() {
+    this.createFolder.emit();
+  }
+
+  onSearch() {
+    this.search.emit(this.searchQuery);
+  }
+
+  onViewModeChange(mode: 'grid' | 'list') {
+    this.viewModeChange.emit(mode);
+  }
+}

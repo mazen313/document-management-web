@@ -1,13 +1,17 @@
 .file-list-container {
-  padding: 16px;
+  padding: 24px;
+  margin-left: 200px;
+  margin-top: 64px;
+  background-color: #f9fafb;
+  min-height: calc(100vh - 64px);
 }
 
 .file-list-table {
   width: 100%;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
 }
 
 .file-row {
@@ -51,5 +55,13 @@
 
 th.mat-header-cell {
   font-weight: 600;
-  color: #333;
+  color: #374151;
+  background-color: #f9fafb;
+}
+
+@media (max-width: 768px) {
+  .file-list-container {
+    margin-left: 60px;
+    padding: 16px;
+  }
 }

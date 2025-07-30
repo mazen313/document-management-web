@@ -1,25 +1,26 @@
-.main-container {
+.app-layout {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #fafafa;
+  background-color: #f9fafb;
+  position: relative;
 }
 
-.content-area {
-  flex: 1;
-  overflow-y: auto;
+.main-content {
+  margin-left: 200px;
+  margin-top: 64px;
+  min-height: calc(100vh - 64px);
+  background-color: #f9fafb;
 }
 
 .empty-state {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: calc(100vh - 200px);
   text-align: center;
 }
 
 .empty-content {
-  color: #666;
+  color: #6b7280;
 }
 
 .empty-icon {
@@ -27,17 +28,18 @@
   width: 64px;
   height: 64px;
   margin-bottom: 16px;
-  color: #ccc;
+  color: #d1d5db;
 }
 
 .empty-content h3 {
   margin: 16px 0 8px 0;
   font-weight: 500;
+  color: #374151;
 }
 
 .empty-content p {
   margin: 0;
-  color: #999;
+  color: #9ca3af;
 }
 
 .loading-container {
@@ -45,11 +47,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: calc(100vh - 200px);
   gap: 16px;
 }
 
 .loading-container p {
-  color: #666;
+  color: #6b7280;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 60px;
+  }
 }

@@ -4,8 +4,8 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-import {ToolbarComponent} from './components/toolbar/toolbar.component';
-import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {HeaderComponent} from './components/header/header.component';
 import {FileGridComponent} from './components/file-grid/file-grid.component';
 import {FileListComponent} from './components/file-list/file-list.component';
 import {UploadZoneComponent} from './components/upload-zone/upload-zone.component';
@@ -36,8 +36,8 @@ import {MatIcon} from "@angular/material/icon";
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    ToolbarComponent,
-    BreadcrumbComponent,
+    SidebarComponent,
+    HeaderComponent,
     FileGridComponent,
     FileListComponent,
     UploadZoneComponent,
@@ -52,6 +52,7 @@ export class MainComponent implements OnInit {
   items: FileItem[] = [];
   breadcrumbs: ElementInfo[] = [];
   currentFolder?: FileItem;
+  currentSection = 'home';
 
   constructor(
     private documentApi: DocumentApiService,
@@ -70,6 +71,25 @@ export class MainComponent implements OnInit {
 
   get selectedItems(): FileItem[] {
     return this.items.filter(item => item.selected);
+  }
+
+  getCurrentPath(): string {
+    if (this.currentSection === 'home') {
+      return this.breadcrumbs.length > 0 ? this.breadcrumbs[this.breadcrumbs.length - 1].name : 'Home';
+    }
+    return this.currentSection.charAt(0).toUpperCase() + this.currentSection.slice(1);
+  }
+
+  onSidebarNavigation(section: string) {
+    this.currentSection = section;
+    if (section === 'home') {
+      this.loadFolder();
+    } else {
+      // Handle other sections (starred, recent, trash)
+      this.items = [];
+      this.breadcrumbs = [];
+      this.showUploadZone = false;
+    }
   }
 
   loadFolder(folder?: FileItem) {

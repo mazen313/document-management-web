@@ -8,69 +8,28 @@
 
 body {
   font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fafafa;
-  color: #333;
+  background-color: #f9fafb;
+  color: #1f2937;
   line-height: 1.6;
 }
 
-.mat-toolbar {
-  background-color: #1976d2 !important;
-  color: white !important;
-}
-
 .mat-card {
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
   transition: box-shadow 0.3s ease;
 }
 
 .mat-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .mat-button, .mat-raised-button, .mat-icon-button {
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .mat-form-field {
   width: 100%;
-}
-
-.upload-drop-zone {
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  padding: 40px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.upload-drop-zone.dragover {
-  border-color: #1976d2;
-  background-color: #e3f2fd;
-}
-
-.file-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  padding: 16px;
-}
-
-.file-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 16px;
-}
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px;
-  background-color: white;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .loading-overlay {
@@ -86,16 +45,5 @@ body {
   z-index: 1000;
 }
 
-@media (max-width: 768px) {
-  .file-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
-    padding: 12px;
-  }
-  
-  .mat-toolbar {
-    padding: 0 8px;
-  }
-}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

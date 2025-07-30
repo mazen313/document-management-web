@@ -1,0 +1,52 @@
+<div class="header">
+  <div class="header-left">
+    <div class="breadcrumb">
+      <mat-icon class="breadcrumb-icon">home</mat-icon>
+      <span class="breadcrumb-text">{{ currentPath }}</span>
+    </div>
+  </div>
+
+  <div class="header-center">
+    <div class="search-container">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-icon matPrefix class="search-icon">search</mat-icon>
+        <input 
+          matInput 
+          placeholder="Search files and folders..." 
+          [(ngModel)]="searchQuery" 
+          (keyup.enter)="onSearch()">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <button mat-raised-button color="primary" class="upload-btn" (click)="onUploadFiles()">
+      <mat-icon>cloud_upload</mat-icon>
+      Upload
+    </button>
+    
+    <button mat-stroked-button class="new-folder-btn" (click)="onCreateFolder()">
+      <mat-icon>create_new_folder</mat-icon>
+      New folder
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="viewMenu" class="view-menu-btn">
+      <mat-icon>view_module</mat-icon>
+    </button>
+    
+    <mat-menu #viewMenu="matMenu">
+      <button mat-menu-item (click)="onViewModeChange('grid')">
+        <mat-icon>view_module</mat-icon>
+        <span>Grid view</span>
+      </button>
+      <button mat-menu-item (click)="onViewModeChange('list')">
+        <mat-icon>view_list</mat-icon>
+        <span>List view</span>
+      </button>
+    </mat-menu>
+
+    <button mat-icon-button class="more-options-btn">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+</div>
