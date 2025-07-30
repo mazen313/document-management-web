@@ -11,10 +11,12 @@
   left: 200px;
   right: 0;
   z-index: 99;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .header-left {
   flex-shrink: 0;
+  min-width: 120px;
 }
 
 .breadcrumb {
@@ -25,44 +27,71 @@
 
 .breadcrumb-icon {
   color: #6b7280;
-  font-size: 20px;
-  width: 20px;
-  height: 20px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .breadcrumb-text {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #1f2937;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .header-center {
   flex: 1;
   max-width: 600px;
+  display: flex;
+  justify-content: center;
 }
 
 .search-container {
   width: 100%;
+  max-width: 480px;
 }
 
-.search-field {
-  width: 100%;
-}
-
-.search-field ::ng-deep .mat-mdc-form-field-wrapper {
-  padding-bottom: 0;
-}
-
-.search-field ::ng-deep .mat-mdc-text-field-wrapper {
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  background-color: #f9fafb;
+  padding: 0 12px;
+  height: 40px;
+  transition: all 0.2s ease;
+}
+
+.search-wrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background-color: #ffffff;
 }
 
 .search-icon {
   color: #9ca3af;
-  font-size: 20px;
-  width: 20px;
-  height: 20px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #1f2937;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
 }
 
 .header-right {
@@ -78,13 +107,15 @@
   text-transform: none;
   padding: 0 16px;
   height: 36px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
 }
 
 .upload-btn mat-icon {
-  margin-right: 8px;
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+  margin-right: 6px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .new-folder-btn {
@@ -95,13 +126,15 @@
   height: 36px;
   border-color: #d1d5db;
   color: #374151;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
 }
 
 .new-folder-btn mat-icon {
-  margin-right: 8px;
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+  margin-right: 6px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .view-menu-btn,
@@ -114,9 +147,9 @@
 .view-menu-btn mat-icon,
 .more-options-btn mat-icon {
   color: #6b7280;
-  font-size: 20px;
-  width: 20px;
-  height: 20px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 768px) {

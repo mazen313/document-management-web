@@ -8,14 +8,14 @@
 
   <div class="header-center">
     <div class="search-container">
-      <mat-form-field appearance="outline" class="search-field">
-        <mat-icon matPrefix class="search-icon">search</mat-icon>
+      <div class="search-wrapper">
+        <mat-icon class="search-icon">search</mat-icon>
         <input 
-          matInput 
+          class="search-input"
           placeholder="Search files and folders..." 
           [(ngModel)]="searchQuery" 
           (keyup.enter)="onSearch()">
-      </mat-form-field>
+      </div>
     </div>
   </div>
 
