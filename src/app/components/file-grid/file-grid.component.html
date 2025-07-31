@@ -1,5 +1,5 @@
 <div class="file-grid">
-  <mat-card 
+  <div 
     *ngFor="let item of items" 
     class="file-item"
     [class.selected]="item.selected"
@@ -23,12 +23,12 @@
           <mat-icon>edit</mat-icon>
           <span>Rename</span>
         </button>
-      @if(item.type === 'FILE') {
+        @if(item.type === 'FILE') {
           <button mat-menu-item (click)="onDownload(item)">
-              <mat-icon>cloud_download</mat-icon>
-              <span>Download</span>
+            <mat-icon>cloud_download</mat-icon>
+            <span>Download</span>
           </button>
-      }
+        }
         <button mat-menu-item (click)="onMove(item)">
           <mat-icon>drive_file_move</mat-icon>
           <span>Move</span>
@@ -55,11 +55,6 @@
       <div class="file-name" [title]="item.name">
         {{ item.name }}
       </div>
-      @if(item.type === 'FILE' && item.size) {
-          <div class="file-details">
-              {{ formatFileSize(item.size) }}
-          </div>
-      }
     </div>
-  </mat-card>
+  </div>
 </div>
