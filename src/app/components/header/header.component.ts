@@ -26,10 +26,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeaderComponent {
   @Input() currentPath = 'Home';
+  @Input() hasSelection = false;
+  @Input() selectedCount = 0;
   @Output() uploadFiles = new EventEmitter<void>();
   @Output() createFolder = new EventEmitter<void>();
   @Output() search = new EventEmitter<string>();
   @Output() viewModeChange = new EventEmitter<'grid' | 'list'>();
+  @Output() downloadSelected = new EventEmitter<void>();
+  @Output() deleteSelected = new EventEmitter<void>();
 
   searchQuery = '';
 
@@ -47,5 +51,13 @@ export class HeaderComponent {
 
   onViewModeChange(mode: 'grid' | 'list') {
     this.viewModeChange.emit(mode);
+  }
+
+  onDownloadSelected() {
+    this.downloadSelected.emit();
+  }
+
+  onDeleteSelected() {
+    this.deleteSelected.emit();
   }
 }

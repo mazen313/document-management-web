@@ -3,10 +3,14 @@
   
   <app-header
     [currentPath]="getCurrentPath()"
+    [hasSelection]="hasSelectedItems"
+    [selectedCount]="selectedItems.length"
     (uploadFiles)="onUploadFiles()"
     (createFolder)="onCreateFolder()"
     (search)="onSearch($event)"
-    (viewModeChange)="onViewModeChange($event)">
+    (viewModeChange)="onViewModeChange($event)"
+    (downloadSelected)="onDownloadSelected()"
+    (deleteSelected)="onDeleteSelected()">
   </app-header>
 
   <div class="main-content">

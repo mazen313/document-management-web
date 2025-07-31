@@ -7,46 +7,71 @@
   </div>
 
   <div class="header-center">
-    <div class="search-container">
-      <div class="search-wrapper">
-        <mat-icon class="search-icon">search</mat-icon>
-        <input 
-          class="search-input"
-          placeholder="Search files and folders..." 
-          [(ngModel)]="searchQuery" 
-          (keyup.enter)="onSearch()">
+    @if(!hasSelection) {
+      <div class="search-container">
+        <div class="search-wrapper">
+          <mat-icon class="search-icon">search</mat-icon>
+          <input 
+            class="search-input"
+            placeholder="Search files and folders..." 
+            [(ngModel)]="searchQuery" 
+            (keyup.enter)="onSearch()">
+        </div>
       </div>
-    </div>
+    }
+    @if(hasSelection) {
+      <div class="selection-info">
+        <span class="selection-count">{{ selectedCount }} item{{ selectedCount > 1 ? 's' : '' }} selected</span>
+      </div>
+    }
   </div>
 
   <div class="header-right">
-    <button mat-raised-button color="primary" class="upload-btn" (click)="onUploadFiles()">
-      <mat-icon>cloud_upload</mat-icon>
-      Upload
-    </button>
-    
-    <button mat-stroked-button class="new-folder-btn" (click)="onCreateFolder()">
-      <mat-icon>create_new_folder</mat-icon>
-      New folder
-    </button>
+    @if(!hasSelection) {
+      <button mat-raised-button color="primary" class="upload-btn" (click)="onUploadFiles()">
+        <mat-icon>cloud_upload</mat-icon>
+        Upload
+      </button>
+      
+      <button mat-stroked-button class="new-folder-btn" (click)="onCreateFolder()">
+        <mat-icon>create_new_folder</mat-icon>
+        New folder
+      </button>
 
-    <button mat-icon-button [matMenuTriggerFor]="viewMenu" class="view-menu-btn">
-      <mat-icon>view_module</mat-icon>
-    </button>
-    
-    <mat-menu #viewMenu="matMenu">
-      <button mat-menu-item (click)="onViewModeChange('grid')">
+      <button mat-icon-button [matMenuTriggerFor]="viewMenu" class="view-menu-btn">
         <mat-icon>view_module</mat-icon>
-        <span>Grid view</span>
       </button>
-      <button mat-menu-item (click)="onViewModeChange('list')">
-        <mat-icon>view_list</mat-icon>
-        <span>List view</span>
-      </button>
-    </mat-menu>
+      
+      <mat-menu #viewMenu="matMenu">
+        <button mat-menu-item (click)="onViewModeChange('grid')">
+          <mat-icon>view_module</mat-icon>
+          <span>Grid view</span>
+        </button>
+        <button mat-menu-item (click)="onViewModeChange('list')">
+          <mat-icon>view_list</mat-icon>
+          <span>List view</span>
+        </button>
+      </mat-menu>
 
-    <button mat-icon-button class="more-options-btn">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+      <button mat-icon-button class="more-options-btn">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    }
+    
+    @if(hasSelection) {
+      <button mat-raised-button class="download-btn" (click)="onDownloadSelected()">
+        <mat-icon>cloud_download</mat-icon>
+        Download
+      </button>
+      
+      <button mat-raised-button color="warn" class="delete-btn" (click)="onDeleteSelected()">
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
+      
+      <button mat-icon-button class="more-options-btn">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    }
   </div>
 </div>
